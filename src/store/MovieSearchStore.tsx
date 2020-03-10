@@ -6,3 +6,5 @@ export class MovieSearchStore {
   @observable.shallow results: any[] = [];
   @observable totalCount: number = 0;
 }
+
+export const store = new MovieSearchStore();

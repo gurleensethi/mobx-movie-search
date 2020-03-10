@@ -1,4 +1,4 @@
-import { MovieSearchResult } from "../typings/types";
+import { MovieSearchResult } from "../typings";
 
 export class MovieAPI {
   private static BASE_URL = "https://api.themoviedb.org/4/";
