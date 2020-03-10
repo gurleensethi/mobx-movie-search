@@ -2,6 +2,7 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 import { StoreProps, defaultStoreProps } from "./typings";
 import { Grid, Paper } from "@material-ui/core";
+import { SearchTextField } from "./components/SearchTextField/SearchTextField";
 
 @inject("store")
 @observer
@@ -13,7 +14,12 @@ export default class App extends React.Component<StoreProps> {
       <React.Fragment>
         <Grid container>
           <Grid item xs={12}>
-            <Paper elevation={2} style={{ padding: "1rem" }}></Paper>
+            <Paper elevation={2} style={{ padding: "1rem" }}>
+              <SearchTextField
+                onChange={this.updateSearchTextField}
+                onEnter={() => console.log("Enter")}
+              />
+            </Paper>
           </Grid>
         </Grid>
       </React.Fragment>
