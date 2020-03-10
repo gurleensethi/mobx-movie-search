@@ -1,13 +1,13 @@
 import React from "react";
-import { inject, observer } from "mobx-react";
-import { StoreProps, defaultStoreProps } from "./typings";
+import { observer } from "mobx-react";
 import { Grid, Paper } from "@material-ui/core";
 import { SearchTextField } from "./components/SearchTextField/SearchTextField";
+import { MovieSearchStoreContext } from "./context/BookSearchStoreContext";
 
-@inject("store")
 @observer
-export default class App extends React.Component<StoreProps> {
-  static defaultProps = defaultStoreProps;
+export default class App extends React.Component {
+  static contextType = MovieSearchStoreContext;
+  context!: React.ContextType<typeof MovieSearchStoreContext>;
 
   render() {
     return (
@@ -27,6 +27,6 @@ export default class App extends React.Component<StoreProps> {
   }
 
   updateSearchTextField = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.store.setTerm(event.target.value);
+    this.context.setTerm(event.target.value);
   };
 }

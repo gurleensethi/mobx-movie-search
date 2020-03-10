@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { Provider } from "mobx-react";
 import { store } from "./store/MovieSearchStore";
 import { configure } from "mobx";
+import { MovieSearchStoreContext } from "./context/BookSearchStoreContext";
 
 ReactDOM.render(
-  <Provider store={store}>
+  <MovieSearchStoreContext.Provider value={store}>
     <App />
-  </Provider>,
+  </MovieSearchStoreContext.Provider>,
   document.getElementById("root")
 );
 
