@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "mobx-react";
 import { store } from "./store/MovieSearchStore";
+import { configure } from "mobx";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -10,3 +11,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+configure({ enforceActions: "always" });
