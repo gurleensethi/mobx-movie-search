@@ -1,10 +1,17 @@
 import * as React from "react";
 import { observer } from "mobx-react";
-import { MovieSearchStoreContext } from "../../context/BookSearchStoreContext";
+import { withMovieContext } from "../../hoc/withMovieContext";
+import { MovieSearchStore } from "../../store/MovieSearchStore";
 
-export const SearchStatus: React.StatelessComponent = observer(props => {
-  const store = React.useContext(MovieSearchStoreContext);
+interface Props {
+  movieSearchStore: MovieSearchStore;
+}
+
+const SearchStatus: React.StatelessComponent<Props> = observer(props => {
+  const { movieSearchStore: store } = props;
   const { status, term } = store;
 
   return <React.Fragment>{term}</React.Fragment>;
 });
+
+export default withMovieContext(SearchStatus);

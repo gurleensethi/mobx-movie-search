@@ -1,7 +1,7 @@
 import * as React from "react";
 import { observer } from "mobx-react";
 import { TextField } from "@material-ui/core";
-import { SearchStatus } from "./SearchStatus";
+import SearchStatus from "./SearchStatus";
 import { MovieSearchStoreContext } from "../../context/BookSearchStoreContext";
 
 interface Props {
