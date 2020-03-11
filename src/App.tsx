@@ -17,7 +17,7 @@ export default class App extends React.Component {
             <Paper elevation={2} style={{ padding: "1rem" }}>
               <SearchTextField
                 onChange={this.updateSearchTextField}
-                onEnter={() => console.log("Enter")}
+                onEnter={() => this.context.search()}
               />
             </Paper>
           </Grid>
