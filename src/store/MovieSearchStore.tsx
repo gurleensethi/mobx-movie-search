@@ -1,4 +1,4 @@
-import { observable, action, runInAction } from "mobx";
+import { observable, action, runInAction, computed } from "mobx";
 import { MovieAPI } from "../api/MovieAPI";
 import { Status } from "../typings";
 
@@ -7,6 +7,11 @@ export class MovieSearchStore {
   @observable status: Status = Status.NONE;
   @observable.shallow results: any[] = [];
   @observable totalCount: number = 0;
+
+  @computed
+  get isEmpty(): boolean {
+    return this.totalCount === 0;
+  }
 
   @action.bound
   async search(): Promise<void> {

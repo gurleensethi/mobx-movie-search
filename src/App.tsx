@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import { Grid, Paper } from "@material-ui/core";
 import { SearchTextField } from "./components/SearchTextField/SearchTextField";
 import { MovieSearchStoreContext } from "./context/BookSearchStoreContext";
+import { ResultsList } from "./components/ResultsList/ResultsList";
 
 @observer
 export default class App extends React.Component {
@@ -21,6 +22,7 @@ export default class App extends React.Component {
               />
             </Paper>
           </Grid>
+          <ResultsList />
         </Grid>
       </React.Fragment>
     );
